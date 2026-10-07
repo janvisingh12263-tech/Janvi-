@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janvi Singh | Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --primary: #1e3a8a;       /* Deep Corporate Blue */
+            --primary-light: #3b82f6; /* Accent Blue */
+            --text-dark: #0f172a;     /* Slate Dark for Typography */
+            --text-muted: #475569;    /* Secondary Text */
+            --bg-light: #f8fafc;      /* Clean Minimal Background */
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --transition: all 0.3s ease;
+            --max-width: 1140px;
+        }
+
+        /* --- BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-light);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.95rem;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #152e72;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(30, 58, 138, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* --- NAVIGATION BAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #f0f4f8 0%, #f8fafc 100%);
+            display: flex;
+            align-items: center;
+            min-height: 85vh;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* --- ABOUT ME SECTION --- */
+        #about {
+            background-color: var(--bg-white);
+        }
+
+        .about-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* --- CAREER GOAL SECTION --- */
+        #career-goal {
+            background-color: var(--bg-light);
+        }
+
+        .goal-card {
+            background-color: var(--bg-white);
+            border-left: 4px solid var(--primary);
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: var(--shadow-sm);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .goal-card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* --- EDUCATION SECTION --- */
+        #education {
+            background-color: var(--bg-white);
+        }
+
+        .education-timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .education-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .edu-degree {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .edu-timeline-badge {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .edu-institute {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .edu-location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- SKILLS SECTION --- */
+        #skills {
+            background-color: var(--bg-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+            color: var(--primary-light);
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .skill-status {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+            padding-top: 10px;
+        }
+
+        .status-developing {
+            color: #d97706; /* Amber color for developing/learning status */
+        }
+        
+        .status-foundational {
+            color: #2563eb; /* Blue color for basic/foundational skills */
+        }
+
+        /* --- PROJECTS SECTION --- */
+        #projects {
+            background-color: var(--bg-white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .project-problem {
+            font-size: 0.9rem;
+            background-color: rgba(241, 245, 249, 1);
+            border-left: 3px solid var(--text-muted);
+            padding: 8px 12px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tool-badge {
+            font-size: 0.75rem;
+            background-color: rgba(30, 58, 138, 0.08);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .project-card .btn {
+            align-self: flex-start;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        /* --- CERTIFICATIONS SECTION --- */
+        #certifications {
+            background-color: var(--bg-light);
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .cert-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            border-color: var(--primary-light);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: #b45309; /* Medal/Gold accent tint */
+        }
+
+        .cert-info h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .cert-info p {
+            font-size: 0.85rem;
+            color: #d97706;
+            font-weight: 500;
+        }
+
+        /* --- CONTACT SECTION --- */
+        #contact {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            transition: var(--transition);
+            padding: 10px;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            color: var(--primary-light);
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.1);
+            color: var(--primary-light);
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide links for menu drawer toggling */
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-white);
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+                gap: 15px;
+                text-align: center;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.25rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .edu-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .edu-timeline-badge {
+                align-self: flex-start;
+            }
+            
+            .contact-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- NAVIGATION BAR --- -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Janvi<span>Singh</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-item active">Home</a></li>
+                <li><a href="#about" class="nav-item">About Me</a></li>
+                <li><a href="#education" class="nav-item">Education</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#certifications" class="nav-item">Certifications</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- --- HERO SECTION --- -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Welcome to my Portfolio</span>
+                <h1>Janvi Singh</h1>
+                <div class="hero-title">BBA Student | Aspiring Business & Data Analyst</div>
+                <p class="hero-description">
+                    A proactive business administration undergraduate bridging foundational commercial strategies with modern data analytics techniques to decode complex problems and drive business growth.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View My Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me <i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- ABOUT ME SECTION --- -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Bridging business acumen with structured reasoning</p>
+            <div class="about-wrapper">
+                <p class="about-text">
+                    Hello! I am Janvi Singh, a dedicated first-year BBA (General) student at Vedanta College, Kolkata. I am deeply passionate about understanding how modern business models operate and how structured workflows can solve realistic economic challenges. Recognizing that data-driven decision-making is central to the future of corporate performance, I focus on cultivating capabilities across business functions, quantitative analysis, and strategic problem-solving. I am highly motivated to refine my analytical thinking and interpersonal communication to thrive in corporate and business environments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CAREER GOAL SECTION --- -->
+    <section id="career-goal">
+        <div class="container">
+            <h2 class="section-title">Career Goal</h2>
+            <p class="section-subtitle">My professional objective and developmental path</p>
+            <div class="goal-card">
+                <p>
+                    "My near-term objective is to systematically master core business rules, quantitative analytics methodologies, and industry-standard documentation practices. By mapping strategic theory to hand-on analytics projects, I aim to secure challenging internships where I can contribute actively to operational efficiency, data cleaning exercises, or business development pipelines while learning from seasoned corporate mentors."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- EDUCATION SECTION --- -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Academic foundations and timelines</p>
+            <div class="education-timeline">
+                <div class="education-card">
+                    <div class="edu-header">
+                        <h3 class="edu-degree">Bachelor of Business Administration (BBA General)</h3>
+                        <span class="edu-timeline-badge">2026 – 2029</span>
+                    </div>
+                    <div class="edu-institute">
+                        <i class="fas fa-university"></i> Vedanta College, Kolkata
+                    </div>
+                    <div class="edu-location">First Year Undergraduate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SKILLS SECTION --- -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Competencies</h2>
+            <p class="section-subtitle">An honest map of my current learning curve and developing capabilities</p>
+            <div class="skills-grid">
+                
+                <!-- Skill 1 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="skill-name">Business Analysis</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Understanding fundamentals of requirements gathering, business workflows, and process mapping.</p>
+                    <span class="skill-status status-developing">Currently Learning</span>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="skill-name">Data Analytics</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Learning statistical foundations, data formatting, and analytical structures.</p>
+                    <span class="skill-status status-developing">Currently Learning</span>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-calculator"></i></div>
+                    <h3 class="skill-name">Tally GST</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Acquiring systematic workflows for ledger creations, financial entries, and GST compliance frameworks.</p>
+                    <span class="skill-status status-developing">Currently Learning</span>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-file-excel"></i></div>
+                    <h3 class="skill-name">Microsoft Excel</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Proficient in basic formulas and cell formatting. Moving towards advanced lookup functions and macros.</p>
+                    <span class="skill-status status-developing">Developing (Advanced Planned)</span>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-pie-chart"></i></div>
+                    <h3 class="skill-name">Data Visualization</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Understanding visual elements to map raw information neatly into intuitive dashboard representations.</p>
+                    <span class="skill-status status-developing">Currently Learning</span>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-comments"></i></div>
+                    <h3 class="skill-name">Communication</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Strong focus on business English, narrative delivery, and cross-functional reporting.</p>
+                    <span class="skill-status status-foundational">Foundational</span>
+                </div>
+
+                <!-- Skill 7 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="skill-name">Problem Solving</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Applying logic and structured frameworks to deconstruct operations or case studies.</p>
+                    <span class="skill-status status-foundational">Foundational</span>
+                </div>
+
+                <!-- Skill 8 -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-search"></i></div>
+                    <h3 class="skill-name">Business Research</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">Collecting baseline competitive data and summarizing market insights accurately.</p>
+                    <span class="skill-status status-foundational">Foundational</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- PROJECTS SECTION --- -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Academic & Practice Projects</h2>
+            <p class="section-subtitle">Placeholder cards for upcoming analytics pipelines and case studies</p>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">Retail Sales Trend Analysis</h3>
+                    <div class="project-problem">
+                        <strong>Problem Statement:</strong> Identifying drop-offs in seasonal monthly performance parameters for retail outlets.
+                    </div>
+                    <p class="project-desc">
+                        An upcoming practice project aimed at parsing mock transactional datasets to isolate underperforming inventory segments and model consumer demand charts.
+                    </p>
+                    <div class="project-tools">
+                        <span class="tool-badge">Microsoft Excel</span>
+                        <span class="tool-badge">Data Visualization</span>
+                    </div>
+                    <button class="btn btn-secondary" disabled style="opacity: 0.6; cursor: not-allowed;">Project Upcoming</button>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3 class="project-title">Business Process Optimization Case Study</h3>
+                    <div class="project-problem">
+                        <strong>Problem Statement:</strong> Analyzing log bottlenecks within traditional local distribution supply-chains.
+                    </div>
+                    <p class="project-desc">
+                        A proposed academic breakdown intended to construct clear workflow diagrams (As-Is vs To-Be maps) to systematically cut waste.
+                    </p>
+                    <div class="project-tools">
+                        <span class="tool-badge">Business Analysis</span>
+                        <span class="tool-badge">Process Mapping</span>
+                    </div>
+                    <button class="btn btn-secondary" disabled style="opacity: 0.6; cursor: not-allowed;">Project Upcoming</button>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3 class="project-title">SME Financial Tracking Framework</h3>
+                    <div class="project-problem">
+                        <strong>Problem Statement:</strong> Upgrading manual ledger books to digital accounting tracking methods.
+                    </div>
+                    <p class="project-desc">
+                        A structured practice plan focusing on configuring digital multi-tier balance tracking architectures mapped cleanly to active GST rules.
+                    </p>
+                    <div class="project-tools">
+                        <span class="tool-badge">Tally GST</span>
+                        <span class="tool-badge">Financial Recording</span>
+                    </div>
+                    <button class="btn btn-secondary" disabled style="opacity: 0.6; cursor: not-allowed;">Project Upcoming</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CERTIFICATIONS SECTION --- -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-subtitle">Track record of technical certifications in progress</p>
+            <div class="certs-grid">
+                
+                <!-- Cert 1 -->
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="cert-info">
+                        <h4>Google Data Analytics</h4>
+                        <p><i class="fas fa-spinner fa-spin"></i> In Progress / Planned</p>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="cert-info">
+                        <h4>Tally GST Certified</h4>
+                        <p><i class="fas fa-spinner fa-spin"></i> In Progress</p>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-file-invoice"></i></div>
+                    <div class="cert-info">
+                        <h4>Advanced Microsoft Excel</h4>
+                        <p><i class="fas fa-clock"></i> Planned Curriculum</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- CONTACT SECTION --- -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's connect for future internships or collaborative academic work</p>
+            <div class="contact-content">
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    I am actively seeking to engage with professionals, analysts, and recruiters in corporate spaces. Please find my placeholder professional coordinates below:
+                </p>
+                
+                <div class="contact-links">
+                    <!-- Email -->
+                    <a href="mailto:your.email@placeholder.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-label">Email</span>
+                        <span style="font-size: 0.8rem;">[your.email@example.com]</span>
+                    </a>
+                    
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/your-username-placeholder" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="contact-label">LinkedIn</span>
+                        <span style="font-size: 0.8rem;">[linkedin.com/in/username]</span>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/your-username-placeholder" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span class="contact-label">GitHub</span>
+                        <span style="font-size: 0.8rem;">[github.com/username]</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Janvi Singh. Built with professional integrity. Portfolio placeholders established for career growth.</p>
+        </div>
+    </footer>
+
+    <!-- --- JAVASCRIPT LOGIC --- -->
+    <script>
+        // --- MOBILE DRAWER NAVIGATION MENU ---
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle between hamburger icon and cross icon
+            const icon = menuToggle.querySelector('i');
+            if(icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // --- ACTIVE LINK SELECTION ON SCROLL ---
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Offset calculation to adjust precisely when user scrolls
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
